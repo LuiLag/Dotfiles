@@ -55,39 +55,29 @@
       "blur": true
     },
     "buttons-grid": {
+      "buttons-per-row": 4,
       "actions": [
-        {
-          "label": "",
-          "type": "normal",
-          "command": "kitty --class WifiFlotante -e nmtui"
-        },
         {
           "label": "",
           "type": "normal",
-          "command": "blueman-manager"
-        },
-        {
-          "label": "",
-          "type": "normal",
-          "command": "swaync-client -t -sw && sleep 0.3 && grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"
+          "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/menu-bluetooth.sh"
         },
         {
           "label": "",
           "type": "normal",
-          "command": "swaync-client -t -sw && /home/lu/.local/bin/cambiar-fondo.sh"
+          "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/cambiar-fondo.sh"
         },
         {
           "label": "",
           "type": "normal",
-          "command": "swaync-client -t -sw && hyprlock"
+          "command": "/home/lu/.local/bin/centro-completo.sh && hyprlock"
         },
         {
           "label": "",
           "type": "normal",
-          "command": "swaync-client -t -sw && /home/lu/.local/bin/menu-energia.sh"
+          "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/menu-energia.sh"
         }
-      ],
-      "buttons-per-row": 3
+      ]
     }
   }
 }

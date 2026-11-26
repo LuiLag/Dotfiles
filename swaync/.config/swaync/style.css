@@ -28,7 +28,7 @@
     color: @on_surface;
     border: 1px solid alpha(@primary, 0.15);
     border-radius: 16px;
-    min-width: 86px;
+    min-width: 64px;
     min-height: 44px;
     padding: 0px;
     margin: 4px;
