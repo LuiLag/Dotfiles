@@ -28,6 +28,11 @@ keymap("n", "<C-l>", "<C-w>l", { desc = "Ir a ventana derecha" })
 keymap("n", "<C-Left>", "<C-w>h", { desc = "Ir a ventana izquierda" })
 keymap("n", "<C-Right>", "<C-w>l", { desc = "Ir a ventana derecha" })
 
+-- Atajos para ver errores de código (Diagnósticos LSP)
+keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Ver detalle del error" })
+keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Error anterior" })
+keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Siguiente error" })
+
 -- ==========================================
 -- 3. GESTOR DE PLUGINS (LAZY.NVIM)
 -- ==========================================
@@ -60,6 +65,8 @@ require("lazy").setup({
           telescope = { enabled = true },
           cmp = true,
           which_key = true,
+          mason = true,
+          native_lsp = { enabled = true },
         },
       })
       vim.cmd.colorscheme("catppuccin")
@@ -106,7 +113,7 @@ require("lazy").setup({
     end,
   },
 
-  -- RESALTADO DE SINTAXIS: Treesitter (Nueva versión compatible)
+  -- RESALTADO DE SINTAXIS: Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -115,7 +122,7 @@ require("lazy").setup({
       ts.setup({})
 
       ts.install({
-        "lua", "bash", "python", "javascript", "typescript",
+        "lua", "bash", "python", "c", "cpp", "javascript", "typescript",
         "html", "css", "json", "jsonc", "markdown", "vim", "vimdoc"
       })
 
@@ -151,6 +158,7 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
+      "hrsh7th/cmp-nvim-lsp", -- Conecta las sugerencias inteligentes del LSP
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "L3MON4D3/LuaSnip",
@@ -174,10 +182,77 @@ require("lazy").setup({
           ["<S-Tab>"] = cmp.mapping.select_prev_item(),
         }),
         sources = cmp.config.sources({
+          { name = "nvim_lsp" }, -- Prioridad a sugerencias reales del lenguaje
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
         }),
+      })
+    end,
+  },
+
+  -- GESTOR DE SERVIDORES DE LENGUAJE: Mason y LSP
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+      "hrsh7th/cmp-nvim-lsp",
+    },
+    config = function()
+      require("mason").setup({
+        ui = {
+          border = "rounded",
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+          },
+        },
+      })
+
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      require("mason-lspconfig").setup({
+        -- Servidores que se instalarán automáticamente
+        ensure_installed = {
+          "lua_ls",   -- Lua (ideal para tu init.lua)
+          "pyright",  -- Python
+          "clangd",   -- C y C++
+          "bashls",   -- Scripts Bash
+          "html",     -- HTML
+          "cssls",    -- CSS
+          "ts_ls",    -- JavaScript y TypeScript
+        },
+        handlers = {
+          function(server_name)
+            require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
+          -- Evita que Lua marque "vim" como variable indefinida en tu init.lua
+          ["lua_ls"] = function()
+            require("lspconfig").lua_ls.setup({
+              capabilities = capabilities,
+              settings = {
+                Lua = {
+                  diagnostics = { globals = { "vim" } },
+                },
+              },
+            })
+          end,
+        },
+      })
+
+      -- Atajos inteligentes cuando abres un archivo con código
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(ev)
+          local opts = { buffer = ev.buf }
+          keymap("n", "gd", vim.lsp.buf.definition, opts)      -- Ir a definición
+          keymap("n", "K", vim.lsp.buf.hover, opts)            -- Ver documentación
+          keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)  -- Renombrar variable
+          keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Corrección rápida
+        end,
       })
     end,
   },
