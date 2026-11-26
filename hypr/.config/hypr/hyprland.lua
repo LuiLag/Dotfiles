@@ -32,11 +32,11 @@ local menu        = "rofi -show drun"  -- Lanzador visual de apps estilo Catppuc
 -- 3. AUTOARRANQUE (AUTOSTART)
 -- ============================================================================
 -- Programas que inician solos con Hyprland (los activaremos al instalar Waybar y fondo):
--- hl.on("hyprland.start", function ()
---   hl.exec_cmd("waybar")             -- Barra superior
+hl.on("hyprland.start", function ()
+hl.exec_cmd("waybar")             -- Barra superior
 --   hl.exec_cmd("hyprpaper")          -- Fondo de pantalla
 --   hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
--- end)
+end)
 
 -- ============================================================================
 -- 4. VARIABLES DE ENTORNO Y PERMISOS

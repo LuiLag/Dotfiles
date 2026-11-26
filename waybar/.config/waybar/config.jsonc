@@ -1,0 +1,95 @@
+{
+    // --- POSICIÓN Y TAMAÑO DE LA BARRA ---
+    "layer": "top",          // Se mantiene siempre visible encima de las ventanas
+    "position": "top",       // Ubicada en el borde superior
+    "margin-top": 10,        // Separación superior para que flote (estilo Material Design)
+    "margin-left": 16,       // Alineado con el gaps_out (16px) de tu hyprland.lua
+    "margin-right": 16,
+    "spacing": 8,            // Espacio entre cada cápsula individual
+
+    // --- DISTRIBUCIÓN DE MÓDULOS (IZQUIERDA, CENTRO, DERECHA) ---
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/power"
+    ],
+
+    // --- DETALLE DE CADA MÓDULO ---
+    "custom/launcher": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "rofi -show drun" // Abre Rofi al hacer clic en el logo de Arch
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
+    },
+
+    "hyprland/window": {
+        "max-length": 35,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "format": "  {:%H:%M  •  %a %d %b}", // Ej: 09:45 • jue 26 nov
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 2
+    },
+
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 2
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "    Mute",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol" // Abre mezclador de audio al hacer clic
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "    Red",
+        "format-disconnected": "    Sin red",
+        "tooltip-format": "{ipaddr}"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit" // Cierra sesión de Hyprland al hacer clic
+    }
+}
