@@ -22,6 +22,7 @@
         "memory",
         "group/audio",
         "network",
+        "custom/settings",
         "custom/notifications",
         "custom/power"
     ],
@@ -104,6 +105,12 @@
         "format-disconnected": "\uf127  Sin red",  // Icono enlace roto
         "format-alt": "\uf0ac  {ipaddr}",          // Clic para ver tu IP
         "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "custom/settings": {
+        "format": "\uf013",
+        "tooltip-format": "Ajustes del Sistema",
+        "on-click": "/home/lu/.local/bin/menu-ajustes.sh"
     },
 
     "custom/notifications": {

@@ -245,7 +245,7 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/cambiar-fondo.sh"))
 
 -- SUPER + / (slash): Abre la chuleta visual de atajos en Rofi
-hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/atajos.sh"))
+hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd("/home/lu/.local/bin/ver-shortcuts.sh"))
 
 -- Variable para recordar si el panel lateral está abierto o cerrado
 local panel_abierto = false

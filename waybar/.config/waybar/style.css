@@ -78,6 +78,7 @@ window#waybar {
 #memory,
 #network,
 #pulseaudio,
+#custom-settings,
 #custom-notifications,
 #custom-power {
     padding: 3px 10px;
@@ -130,6 +131,7 @@ window#waybar {
     padding: 3px 11px;
 }
 
+#custom-settings:hover,
 #custom-notifications:hover {
     background-color: alpha(@primary, 0.25);
 }
