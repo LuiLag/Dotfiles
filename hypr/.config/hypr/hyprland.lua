@@ -245,6 +245,8 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 -- SUPER + W: Abre el selector visual de fondos y cambia los colores del escritorio
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/cambiar-fondo.sh"))
 
+-- SUPER + / (slash): Abre la chuleta visual de atajos en Rofi
+hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/atajos.sh"))
 
 -- ============================================================================
 -- 11. REGLAS DE VENTANAS (WINDOW RULES)
