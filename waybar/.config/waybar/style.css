@@ -22,6 +22,7 @@ window#waybar {
 #memory,
 #pulseaudio,
 #network,
+#custom-notifications,
 #custom-power {
     background-color: alpha(@surface, 0.88);
     color: @on_surface;
@@ -47,6 +48,7 @@ window#waybar.empty #window {
     border: none;
 }
 
+#custom-notifications,
 #custom-power {
     color: @error;
 }

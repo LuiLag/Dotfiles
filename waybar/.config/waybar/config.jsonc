@@ -21,6 +21,7 @@
         "memory",
         "pulseaudio",
         "network",
+        "custom/notifications",
         "custom/power"
     ],
 
@@ -84,6 +85,12 @@
         "format-disconnected": "\uf127  Sin red",  // Icono enlace roto
         "format-alt": "\uf0ac  {ipaddr}",          // Clic para ver tu IP
         "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "custom/notifications": {
+        "format": "\uf0f3",
+        "tooltip-format": "Centro de Control (Super + N)",
+        "on-click": "/home/lu/.local/bin/centro-completo.sh"
     },
 
     "custom/power": {

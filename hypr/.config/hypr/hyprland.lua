@@ -42,6 +42,7 @@ hl.exec_cmd("waybar")             -- Barra superior
 hl.exec_cmd("aww-daemon")          -- Fondo de pantalla
 hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
 hl.exec_cmd("swaync")
+  hl.exec_cmd("swayosd-server")
 hl.exec_cmd("wl-paste --type text --watch cliphist store")  -- Guarda textos copiados
 hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Guarda imágenes copiadas
 end)
