@@ -248,8 +248,12 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/cam
 -- SUPER + / (slash): Abre la chuleta visual de atajos en Rofi
 hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/atajos.sh"))
 
--- SUPER + N: Abre o cierra el Centro de Control lateral (SwayNC)
+-- Variable para recordar si el panel lateral está abierto o cerrado
+local panel_abierto = false
+
+-- SUPER + N: Abre o cierra el Centro de Control flotante (SwayNC)
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+
 
 -- ============================================================================
 -- 11. REGLAS DE VENTANAS (WINDOW RULES)
@@ -283,4 +287,11 @@ hl.window_rule({
     float = true,
 })
 
+-- Efecto cristal desenfocado (blur) para el Centro de Control SwayNC
+hl.layer_rule({
+    name  = "swaync-blur",
+    match = { namespace = "swaync-control-center" },
+    blur  = true,
+    ignore_alpha = 0.5,
+})
 

@@ -9,7 +9,7 @@
 
   "control-center-margin-left": 20,
   "control-center-width": 380,
-  "control-center-height": 580,
+  "control-center-height": 540,
   "fit-to-screen": false,
 
   "notification-window-width": 350,
@@ -50,10 +50,6 @@
     },
     "buttons-grid": {
       "actions": [
-        {
-          "label": "  Red",
-          "command": "kitty -e nmtui"
-        },
         {
           "label": "  Audio",
           "command": "pavucontrol"

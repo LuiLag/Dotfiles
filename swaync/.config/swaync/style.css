@@ -9,7 +9,7 @@
 
 /* --- PANEL LATERAL (CENTRO DE CONTROL) --- */
 .control-center {
-  background-color: alpha(@surface, 0.92);
+  background-color: alpha(@surface, 0.65);
   border: 2px solid alpha(@primary, 0.6);
   border-radius: 24px;
   padding: 16px;
@@ -24,7 +24,7 @@
 }
 
 .widget-title > button {
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.75);
   color: @on_surface;
   border-radius: 12px;
   padding: 6px 12px;
@@ -38,7 +38,7 @@
 
 /* Interruptor No Molestar */
 .widget-dnd {
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.75);
   border-radius: 16px;
   padding: 10px 14px;
   margin-bottom: 10px;
@@ -55,7 +55,7 @@
 
 /* Reproductor de música (MPRIS) */
 .widget-mpris {
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.75);
   border-radius: 18px;
   padding: 12px;
   margin-bottom: 10px;
@@ -73,7 +73,7 @@
 
 /* Barra deslizante de volumen */
 .widget-volume {
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.75);
   border-radius: 16px;
   padding: 10px 14px;
   margin-bottom: 10px;
@@ -87,7 +87,7 @@
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.75);
   color: @on_surface;
   border-radius: 16px;
   padding: 12px;
@@ -106,7 +106,7 @@
 }
 
 .notification {
-  background-color: alpha(@surface, 0.92);
+  background-color: alpha(@surface, 0.65);
   border: 2px solid @primary;
   border-radius: 18px;
   padding: 12px;
