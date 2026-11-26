@@ -235,6 +235,9 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 -- Abrir historial de portapapeles con SUPER + ALT + V
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("sh -c 'cliphist list | rofi -dmenu -p \"Portapapeles:\" | cliphist decode | wl-copy'"))
 
+-- SUPER + L: Bloquea la pantalla al instante con Hyprlock
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
 -- ============================================================================
 -- 11. REGLAS DE VENTANAS (WINDOW RULES)
 -- ============================================================================
