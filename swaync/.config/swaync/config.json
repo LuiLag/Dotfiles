@@ -63,9 +63,29 @@
           "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/menu-bluetooth.sh"
         },
         {
+          "label": "",
+          "type": "normal",
+          "command": "/home/lu/.local/bin/toggle-noche.sh"
+        },
+        {
+          "label": "",
+          "type": "normal",
+          "command": "/home/lu/.local/bin/toggle-gamemode.sh"
+        },
+        {
+          "label": "",
+          "type": "normal",
+          "command": "/home/lu/.local/bin/cambiar-paleta.sh"
+        },
+        {
           "label": "",
           "type": "normal",
           "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/cambiar-fondo.sh"
+        },
+        {
+          "label": "",
+          "type": "normal",
+          "command": "/home/lu/.local/bin/toggle-cafetera.sh"
         },
         {
           "label": "",
