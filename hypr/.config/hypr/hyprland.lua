@@ -31,7 +31,7 @@ hl.monitor({
 -- ============================================================================
 local terminal    = "kitty"            -- Terminal principal estilizada
 local fileManager = "kitty -e yazi"    -- Explorador visual de archivos (o cambia a "dolphin")
-local menu        = "rofi -show drun"  -- Lanzador visual de apps estilo Catppuccin
+local menu        = "rofi -show drun -theme ~/.config/rofi/grid-apps.rasi"  -- Lanzador visual de apps estilo Catppuccin
 
 -- ============================================================================
 -- 3. AUTOARRANQUE (AUTOSTART)
