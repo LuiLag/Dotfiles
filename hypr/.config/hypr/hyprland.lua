@@ -107,6 +107,7 @@ hl.config({
     animations = {
         enabled = true,
         bezier = {
+            "giro, 0.45, 0.05, 0.15, 1.15",
             "expressive, 0.38, 1.21, 0.22, 1.00",
             "standard,   0.05, 0.90, 0.10, 1.05",
             "decel,      0.00, 0.00, 0.20, 1.00",
@@ -119,7 +120,7 @@ hl.config({
             "borderangle,  1, 40, standard,  loop",
             "fadeIn,       1, 4, standard",
             "fadeOut,      1, 4, decel",
-            "workspaces,   1, 5, expressive, slide",
+            "workspaces,   1, 4, standard, slide",
         },
     },
 })
