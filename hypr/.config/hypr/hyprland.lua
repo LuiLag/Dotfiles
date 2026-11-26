@@ -248,7 +248,7 @@ hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin
 local panel_abierto = false
 
 -- SUPER + N: Abre o cierra el Centro de Control flotante (SwayNC)
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("/home/lu/.local/bin/centro-completo.sh"))
 
 
 -- ============================================================================
@@ -297,7 +297,6 @@ hl.window_rule({
     name             = "reloj-conky",
     match            = { class = "ConkyClock" },
     float            = true,
-    pin              = true,
     no_focus         = true,
     no_initial_focus = true,
     no_shadow        = true,
@@ -308,3 +307,5 @@ hl.window_rule({
 
 -- SUPER + T: Muestra u oculta el reloj gigante del escritorio al instante
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pgrep -x conky >/dev/null && killall conky || LC_TIME=es_MX.UTF-8 conky -d"))
+
+-- Si el Centro de Control está abierto, Esc cierra tanto SwayNC como el reloj

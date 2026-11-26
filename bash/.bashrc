@@ -283,3 +283,10 @@ run() {
     sleep 0.2
     exit
 }
+
+# Abrir apps independientes y cerrar terminal
+run() {
+    nohup "$@" >/dev/null 2>&1 &
+    sleep 0.2
+    exit
+}
