@@ -1,13 +1,13 @@
 {
     // --- POSICIÓN Y TAMAÑO DE LA BARRA ---
-    "layer": "top",          // Se mantiene siempre visible encima de las ventanas
-    "position": "top",       // Ubicada en el borde superior
-    "margin-top": 10,        // Separación superior para que flote (estilo Material Design)
-    "margin-left": 16,       // Alineado con el gaps_out (16px) de tu hyprland.lua
+    "layer": "top",
+    "position": "top",
+    "margin-top": 10,
+    "margin-left": 16,
     "margin-right": 16,
-    "spacing": 8,            // Espacio entre cada cápsula individual
+    "spacing": 8,
 
-    // --- DISTRIBUCIÓN DE MÓDULOS (IZQUIERDA, CENTRO, DERECHA) ---
+    // --- DISTRIBUCIÓN DE MÓDULOS ---
     "modules-left": [
         "custom/launcher",
         "hyprland/workspaces",
@@ -21,23 +21,22 @@
         "memory",
         "pulseaudio",
         "network",
-        "battery",
         "custom/power"
     ],
 
     // --- DETALLE DE CADA MÓDULO ---
     "custom/launcher": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "rofi -show drun" // Abre Rofi al hacer clic en el logo de Arch
+        "format": "\uf6be",             // Código Unicode seguro para el icono de Gato (FontAwesome)
+        "tooltip-format": "Abrir aplicaciones",
+        "on-click": "rofi -show drun"
     },
 
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
         "format-icons": {
-            "active": "",
-            "default": ""
+            "active": "\uf111",         // Círculo relleno
+            "default": "\uf10c"         // Círculo vacío
         }
     },
 
@@ -47,49 +46,42 @@
     },
 
     "clock": {
-        "format": "  {:%H:%M  •  %a %d %b}", // Ej: 09:45 • jue 26 nov
+        "format": "\uf017  {:%H:%M  •  %a %d %b}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
 
     "cpu": {
-        "format": "  {usage}%",
+        "format": "\uf2db  {usage}%",
         "interval": 2
     },
 
     "memory": {
-        "format": "  {percentage}%",
+        "format": "\uf538  {percentage}%",
         "interval": 2
     },
 
     "pulseaudio": {
         "format": "{icon}  {volume}%",
-        "format-muted": "    Mute",
+        "format-muted": "\uf6a9  Mute",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": ["\uf026", "\uf027", "\uf028"]
         },
-        "on-click": "pavucontrol" // Abre mezclador de audio al hacer clic
+        "on-click": "pavucontrol"
     },
 
     "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "    Red",
-        "format-disconnected": "    Sin red",
-        "tooltip-format": "{ipaddr}"
-    },
-
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format": "\uf796  Conectado",             // Código Unicode seguro para cable Ethernet
+        "format-wifi": "\uf1eb  {essid}",          // Icono Wi-Fi
+        "format-ethernet": "\uf796  Ethernet",     // Icono cable Ethernet
+        "format-linked": "\uf796  {ifname}",
+        "format-disconnected": "\uf127  Sin red",  // Icono desconectado
+        "format-alt": "\uf0ac  {ipaddr}",          // Clic para ver tu IP
+        "tooltip-format": "{ifname}: {ipaddr}"
     },
 
     "custom/power": {
-        "format": "⏻",
+        "format": "\uf011",
         "tooltip": false,
-        "on-click": "hyprctl dispatch exit" // Cierra sesión de Hyprland al hacer clic
+        "on-click": "hyprctl dispatch exit"
     }
 }
