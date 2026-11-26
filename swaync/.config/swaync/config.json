@@ -63,6 +63,11 @@
           "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/menu-bluetooth.sh"
         },
         {
+          "label": "",
+          "type": "normal",
+          "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/menu-audio.sh"
+        },
+        {
           "label": "",
           "type": "normal",
           "command": "/home/lu/.local/bin/toggle-noche.sh"
@@ -73,19 +78,14 @@
           "command": "/home/lu/.local/bin/toggle-gamemode.sh"
         },
         {
-          "label": "",
+          "label": "",
           "type": "normal",
-          "command": "/home/lu/.local/bin/cambiar-paleta.sh"
+          "command": "/home/lu/.local/bin/centro-completo.sh && sleep 0.3 && COLOR=$(hyprpicker -a) && [ -n \"$COLOR\" ] && notify-send \"Color Copiado\" \"$COLOR guardado en el portapapeles\""
         },
         {
           "label": "",
           "type": "normal",
           "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/cambiar-fondo.sh"
-        },
-        {
-          "label": "",
-          "type": "normal",
-          "command": "/home/lu/.local/bin/toggle-cafetera.sh"
         },
         {
           "label": "",
