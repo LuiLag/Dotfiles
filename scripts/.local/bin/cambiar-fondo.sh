@@ -3,11 +3,12 @@ export PATH="$PATH:/usr/local/bin:/usr/sbin:$HOME/.local/bin"
 
 DIR="$HOME/Pictures/Wallpapers"
 
-# Estilo de galería pura para Rofi: sin buscador, sin nombres, en cuadrícula (3 columnas x 2 filas)
+# Estilo de galería compacta: miniaturas redondeadas y contorno ajustado
 TEMA_GALERIA='
 window {
-    width: 660px;
-    padding: 20px;
+    width: 460px;
+    padding: 16px;
+    border-radius: 20px;
 }
 mainbox {
     children: [ listview ];
@@ -15,17 +16,18 @@ mainbox {
 listview {
     columns: 3;
     lines: 2;
-    spacing: 14px;
-    fixed-height: true;
+    spacing: 10px;
+    fixed-height: false;
     fixed-columns: true;
 }
 element {
     orientation: vertical;
-    padding: 10px;
-    border-radius: 16px;
+    padding: 5px;
+    border-radius: 15px;
 }
 element-icon {
-    size: 165px;
+    size: 115px;
+    border-radius: 11px;
     horizontal-align: 0.5;
     vertical-align: 0.5;
 }
