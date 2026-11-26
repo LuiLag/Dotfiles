@@ -88,7 +88,7 @@
 
     "pulseaudio": {
         "format": "{icon}  {volume}%",
-        "format-muted": "\uf6a9  Mute",
+        "format-muted": "\udb81\udd81  Mute",
         "format-icons": {
             "default": ["\uf026", "\uf027", "\uf028"]
         },
