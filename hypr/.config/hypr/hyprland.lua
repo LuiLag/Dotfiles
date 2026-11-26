@@ -334,5 +334,5 @@ hl.config({
 })
 
 hl.layer_rule({ name = "blur-waybar", match = { namespace = "waybar" }, blur = true, ignore_alpha = 0.2 })
-hl.layer_rule({ name = "blur-swaync", match = { namespace = "swaync.*" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ name = "blur-rofi",   match = { namespace = "rofi" }, blur = true, ignore_alpha = 0.2 })
+hl.layer_rule({ name = "no-blur-swaync", match = { namespace = "swaync.*" }, blur = false })

@@ -6,8 +6,8 @@
   "control-center-layer": "top",
   "layer-shell": true,
   "cssPriority": "user",
-  "control-center-margin-top": 12,
-  "control-center-margin-bottom": 12,
+  "control-center-margin-top": 8,
+  "control-center-margin-bottom": 8,
   "control-center-margin-left": 12,
   "control-center-margin-right": 0,
   "notification-2fa-action": true,
@@ -20,7 +20,7 @@
   "timeout-critical": 0,
   "fit-to-screen": true,
   "relative-timestamps": true,
-  "control-center-width": 390,
+  "control-center-width": 370,
   "notification-window-width": 380,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -29,18 +29,15 @@
   "hide-on-action": true,
   "script-fail-notify": true,
   "widgets": [
-    "buttons-grid",
-    "volume",
-    "mpris",
+    "label",
     "title",
-    "dnd",
-    "notifications"
+    "buttons-grid",
+    "mpris"
   ],
   "widget-config": {
     "title": {
-      "text": "Notificaciones",
-      "clear-all-button": true,
-      "button-text": "Limpiar"
+      "text": "⠀            10°C Parcialmente nublado",
+      "clear-all-button": false
     },
     "dnd": {
       "text": "No molestar"
@@ -50,9 +47,9 @@
       "show-per-app": false
     },
     "mpris": {
-      "image-size": 76,
+      "image-size": 64,
       "image-radius": 14,
-      "blur": true
+      "blur": false
     },
     "buttons-grid": {
       "buttons-per-row": 4,
@@ -98,6 +95,10 @@
           "command": "/home/lu/.local/bin/centro-completo.sh && /home/lu/.local/bin/menu-energia.sh"
         }
       ]
+    },
+    "label": {
+      "max-lines": 10,
+      "text": "       LuiLag • Up 22h 21m\n         Mérida, Yucatán\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n            05:48 PM\n     Jueves, 26 de noviembre\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCDMX:  05:48 PM  Tokio: 08:48 AM\nMadrid:12:48 AM  Seúl:  08:48 AM"
     }
   }
 }

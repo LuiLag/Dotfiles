@@ -6,21 +6,34 @@
     transition: all 0.2s cubic-bezier(0.38, 1.21, 0.22, 1.0);
 }
 
-/* --- VENTANA PRINCIPAL DEL PANEL --- */
+/* --- CONTENEDOR TRANSPARENTE PARA SEPARAR LAS TARJETAS EN ISLAS --- */
 .control-center {
-    background-color: alpha(@surface, 0.78);
-    border: 1.5px solid alpha(@primary, 0.30);
-    border-radius: 26px;
-    padding: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 8px;
 }
 
-/* --- CUADRÍCULA DE BOTONES RÁPIDOS (ESTILO ANDROID 14) --- */
+/* --- ISLA 1: RELOJ Y HORAS MUNDIALES / PERFIL --- */
+.widget-label {
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 26px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    color: @on_surface;
+    font-size: 13px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
+}
+
+/* --- ISLA 2: BOTONES RÁPIDOS --- */
 .widget-buttons-grid {
-    background-color: alpha(@surface_container, 0.65);
-    border-radius: 20px;
-    padding: 10px;
-    margin-bottom: 12px;
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 26px;
+    padding: 12px;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
@@ -41,14 +54,16 @@
     border-color: @primary;
 }
 
-/* --- BARRA DE VOLUMEN GRUESA ESTILO PILL --- */
+/* --- ISLA 3: VOLUMEN --- */
 .widget-volume {
-    background-color: alpha(@surface_container, 0.65);
-    border-radius: 20px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 26px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
     color: @primary;
     font-size: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
 }
 
 .widget-volume trough {
@@ -70,13 +85,14 @@
     min-width: 16px;
 }
 
-/* --- TARJETA DE REPRODUCTOR DE MÚSICA (MPRIS) --- */
+/* --- ISLA 4: REPRODUCTOR DE MÚSICA (MPRIS) --- */
 .widget-mpris {
-    background-color: alpha(@surface_container, 0.70);
-    border: 1px solid alpha(@secondary, 0.20);
-    border-radius: 20px;
-    padding: 12px;
-    margin-bottom: 12px;
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 26px;
+    padding: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
 }
 
 .widget-mpris-player {
@@ -87,7 +103,6 @@
 .widget-mpris-title {
     color: @on_surface;
     font-size: 14px;
-    font-weight: bold;
 }
 
 .widget-mpris-subtitle {
@@ -108,34 +123,16 @@
     color: @on_primary;
 }
 
-/* --- TÍTULO Y BOTÓN LIMPIAR --- */
-.widget-title {
-    color: @on_surface;
-    font-size: 15px;
-    margin: 4px 4px 8px 4px;
-}
-
-.widget-title > button {
-    background-color: alpha(@primary, 0.18);
-    color: @primary;
-    border-radius: 14px;
-    padding: 4px 12px;
-    font-size: 12px;
-}
-
-.widget-title > button:hover {
-    background-color: @primary;
-    color: @on_primary;
-}
-
-/* --- INTERRUPTOR NO MOLESTAR --- */
+/* --- ISLA 5: NOTIFICACIONES Y NO MOLESTAR --- */
 .widget-dnd {
-    background-color: alpha(@surface_container, 0.65);
-    border-radius: 18px;
-    padding: 10px 14px;
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 22px;
+    padding: 12px 16px;
     margin-bottom: 12px;
     color: @on_surface;
     font-size: 13px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
 }
 
 .widget-dnd > switch {
@@ -152,39 +149,246 @@
     border-radius: 99px;
 }
 
-/* --- TARJETAS DE NOTIFICACIONES --- */
-.notification-row {
-    outline: none;
-    margin-bottom: 8px;
+.widget-title {
+    color: @on_surface;
+    font-size: 14px;
+    margin: 2px 6px 8px 6px;
+}
+
+.widget-title > button {
+    background-color: alpha(@primary, 0.20);
+    color: @primary;
+    border-radius: 14px;
+    padding: 4px 12px;
+    font-size: 12px;
 }
 
 .notification {
-    background-color: alpha(@surface_container, 0.85);
-    border: 1px solid alpha(@primary, 0.20);
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    background-color: alpha(@surface, 0.90);
+    border: 1.5px solid alpha(@primary, 0.25);
+    border-radius: 22px;
+    padding: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
-.notification-content .summary {
-    color: @primary;
+.blank-window,
+.control-center-list,
+.control-center-list-placeholder {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.control-center .notification-row,
+.control-center-list-placeholder,
+.control-center-list-placeholder image,
+.control-center-list-placeholder label {
+    opacity: 0;
+    min-height: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.widget-volume {
+    opacity: 0;
+    min-height: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* --- OCULTA BARRA DE DESPLAZAMIENTO (SCROLLBAR) DE SWAYNC --- */
+.control-center scrollbar,
+.control-center scrollbar trough,
+.control-center scrollbar slider {
+    opacity: 0;
+    min-width: 0px;
+    min-height: 0px;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+}
+
+.widget-buttons-grid,
+.widget-mpris,
+.widget-label {
+    margin-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/* --- AJUSTE COMPACTO PARA QUE QUEPAN LAS 3 ISLAS SIN RECORTES --- */
+.control-center {
+    padding: 4px 8px;
+}
+
+.widget-label {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+}
+
+.widget-buttons-grid {
+    padding: 8px 10px;
+    margin-bottom: 10px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    min-height: 38px;
+    margin: 3px;
+}
+
+.widget-mpris {
+    padding: 10px 12px;
+    margin-bottom: 0px;
+}
+
+/* --- ISLA 1: FORMA DE ARCO SUPERIOR + FONDO DE GATITO --- */
+.widget-label {
+    border-radius: 140px 140px 26px 26px;
+    padding-top: 34px;
+    padding-bottom: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: linear-gradient(rgba(16, 16, 22, 0.55), rgba(16, 16, 22, 0.85)), url("file:///home/lu/Pictures/gatito.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.widget-label {
+    border-radius: 110px 110px 26px 26px;
+    padding-top: 54px;
+    padding-bottom: 16px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+/* --- ISLA DE CLIMA DE ANCHO COMPLETO --- */
+.widget-title {
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 22px;
+    padding: 10px 18px;
+    margin: 0px 0px 10px 0px;
+    color: @on_surface;
     font-size: 13px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
 }
 
-.notification-content .body {
-    color: alpha(@on_surface, 0.85);
+/* --- AJUSTE COMPACTO DE ANCHO (370px) --- */
+.widget-label {
     font-size: 12px;
-    font-weight: normal;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
-.close-button {
-    background-color: alpha(@error, 0.20);
-    color: @error;
-    border-radius: 99px;
-    padding: 2px 6px;
+.widget-title {
+    font-size: 12px;
+    padding: 9px 14px;
 }
 
-.close-button:hover {
-    background-color: @error;
-    color: @on_error;
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    min-width: 56px;
+}
+
+/* --- CENTRADO REAL DE GTK LABEL EN LA ISLA 1 --- */
+.widget-label,
+.widget-label label {
+    -GtkWidget-halign: center;
+    text-align: center;
+}
+
+/* --- CENTRADO REAL MULTILÍNEA EN GTK3 --- */
+.widget-label,
+.widget-label > label {
+    justify: center;
+    -GtkWidget-halign: center;
+}
+
+/* --- UNIFICA TAMAÑO DE LETRA DEL CLIMA CON EL PERFIL (12px) --- */
+.widget-title,
+.widget-title > label {
+    font-size: 12px;
+}
+
+/* --- FUSIONA LA TARJETA DE MÚSICA EN UN SOLO MARCO LIMPIO --- */
+.widget-mpris {
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.widget-mpris-player {
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 26px;
+    padding: 14px;
+    margin: 0px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
+}
+
+/* --- ELIMINA EL CUADRO INTERNO DEL REPRODUCTOR DE MÚSICA --- */
+.widget-mpris-player {
+    background-image: none;
+    background-color: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 26px;
+}
+
+.widget-mpris-album-art {
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* --- ANULA POR COMPLETO EL CUADRO GRIS INTERNO DE MPRIS --- */
+.widget-mpris {
+    background: alpha(@surface, 0.88);
+    border: 1.5px solid alpha(@primary, 0.28);
+    border-radius: 26px;
+    padding: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
+}
+
+.widget-mpris * {
+    background-image: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.widget-mpris-album-art {
+    border-radius: 14px;
+}
+
+.widget-mpris button {
+    background-color: alpha(@primary, 0.18);
+    color: @primary;
+    border-radius: 14px;
+    padding: 6px 12px;
+    margin: 4px 4px 0 0;
+}
+
+.widget-mpris button:hover {
+    background-color: @primary;
+    color: @on_primary;
+}
+
+/* --- OCULTA EL FONDO DIFUMINADO CON ORILLAS EN MPRIS --- */
+.mpris-background {
+    opacity: 0;
+}
+
+/* --- FONDO DIFUMINADO DE LA CANCIÓN A TARJETA COMPLETA SIN ORILLAS --- */
+.widget-mpris {
+    padding: 0px;
+}
+
+.mpris-background {
+    opacity: 0.55;
+    border-radius: 26px;
+}
+
+.widget-mpris-player {
+    padding: 16px;
+    border-radius: 26px;
 }
