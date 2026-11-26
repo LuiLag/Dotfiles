@@ -36,6 +36,9 @@ hl.on("hyprland.start", function ()
 hl.exec_cmd("waybar")             -- Barra superior
 hl.exec_cmd("hyprpaper")          -- Fondo de pantalla
 --   hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
+hl.exec_cmd("mako")
+hl.exec_cmd("wl-paste --type text --watch cliphist store")  -- Guarda textos copiados
+hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Guarda imágenes copiadas
 end)
 
 -- ============================================================================
@@ -135,6 +138,7 @@ hl.config({
     misc = {
         force_default_wallpaper = 0,    -- 0 = Quita fondo anime por defecto (-1 para activarlo)
         disable_hyprland_logo   = true, -- Oculta logo de Hyprland en el fondo
+        disable_splash_rendering = true, -- Quita las frases aleatorias de abajo
     },
     layers = {
         allow_new_top_layers_over_existing_fullscreen = true, -- Permite abrir Rofi sobre pantalla completa
@@ -176,7 +180,7 @@ hl.bind(mainMod .. " + C",     hl.dsp.window.close())           -- SUPER + C: Ci
 hl.bind(mainMod .. " + E",     hl.dsp.exec_cmd(fileManager))    -- SUPER + E: Abre archivos (Yazi)
 hl.bind(mainMod .. " + R",     hl.dsp.exec_cmd(menu))           -- SUPER + R: Abre lanzador (Rofi)
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))           -- SUPER + ESPACIO: Abre Rofi
-hl.bind(mainMod .. " + V",     hl.dsp.window.float({ action = "toggle" })) -- SUPER + V: Flotante/Mosaico
+hl.bind(mainMod .. " + F",     hl.dsp.window.float({ action = "toggle" })) -- SUPER + F: Flotante/Mosaico
 hl.bind(mainMod .. " + P",     hl.dsp.window.pseudo())          -- SUPER + P: Tamaño fijo en mosaico
 hl.bind(mainMod .. " + J",     hl.dsp.layout("togglesplit"))    -- SUPER + J: Rotar división horizontal/vertical
 hl.bind(mainMod .. " + M",     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")) -- SUPER + M: Salir de Hyprland
@@ -227,6 +231,9 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true }) -- Pausar/Reanudar
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true }) -- Play/Pause
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true }) -- Anterior
+
+-- Abrir historial de portapapeles con SUPER + ALT + V
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("sh -c 'cliphist list | rofi -dmenu -p \"Portapapeles:\" | cliphist decode | wl-copy'"))
 
 -- ============================================================================
 -- 11. REGLAS DE VENTANAS (WINDOW RULES)
