@@ -1,3 +1,8 @@
+-- Carga los colores dinámicos generados por Matugen (con respaldo morado/azul si aún no existen)
+local ok, dyn_colors = pcall(dofile, os.getenv("HOME") .. "/.cache/matugen/colors-hyprland.lua")
+local active_col1 = ok and dyn_colors.primary or "rgba(cba6f7ee)"
+local active_col2 = ok and dyn_colors.secondary or "rgba(89b4faee)"
+
 -- ============================================================================
 -- ARCHIVO DE CONFIGURACIÓN DE HYPRLAND (EN LUA)
 -- ============================================================================
@@ -34,8 +39,8 @@ local menu        = "rofi -show drun"  -- Lanzador visual de apps estilo Catppuc
 -- Programas que inician solos con Hyprland (los activaremos al instalar Waybar y fondo):
 hl.on("hyprland.start", function ()
 hl.exec_cmd("waybar")             -- Barra superior
-hl.exec_cmd("hyprpaper")          -- Fondo de pantalla
---   hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
+hl.exec_cmd("aww-daemon")          -- Fondo de pantalla
+hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
 hl.exec_cmd("mako")
 hl.exec_cmd("wl-paste --type text --watch cliphist store")  -- Guarda textos copiados
 hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Guarda imágenes copiadas
@@ -62,11 +67,10 @@ hl.config({
         gaps_out = 16,            -- Espacio entre ventanas y BORDES del monitor
         border_size = 2,          -- Grosor del borde alrededor de ventanas
         col = {
-            -- Degradado morado a azul pastel (Catppuccin Mocha) en ventana activa
-            active_border   = { colors = {"rgba(cba6f7ee)", "rgba(89b4faee)"}, angle = 45 },
-            -- Gris oscuro discreto en ventanas inactivas
-            inactive_border = "rgba(45475aaa)",
-        },
+         -- Borde activo dinámico que cambia según tu fondo de pantalla
+         active_border   = { colors = {active_col1, active_col2}, angle = 45 },
+         inactive_border = "rgba(45475aaa)",
+     },
         resize_on_border = true,  -- Permite redimensionar arrastrando bordes con el mouse
         allow_tearing    = false, -- Evita cortes visuales (V-Sync activado)
         layout           = "dwindle", -- Mosaico en espiral/árbol binario
@@ -237,6 +241,10 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("sh -c 'cliphist list | rofi -dmenu -
 
 -- SUPER + L: Bloquea la pantalla al instante con Hyprlock
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
+-- SUPER + W: Abre el selector visual de fondos y cambia los colores del escritorio
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/cambiar-fondo.sh"))
+
 
 -- ============================================================================
 -- 11. REGLAS DE VENTANAS (WINDOW RULES)

@@ -1,0 +1,22 @@
+[config]
+reload_apps = true
+
+# Plantilla para Waybar (barra superior)
+[templates.waybar]
+input_path = "~/.config/matugen/templates/colors-waybar.css"
+output_path = "~/.cache/matugen/colors-waybar.css"
+
+# Plantilla para Kitty (terminal)
+[templates.kitty]
+input_path = "~/.config/matugen/templates/colors-kitty.conf"
+output_path = "~/.cache/matugen/colors-kitty.conf"
+
+# Plantilla para Rofi (lanzador de apps)
+[templates.rofi]
+input_path = "~/.config/matugen/templates/colors-rofi.rasi"
+output_path = "~/.cache/matugen/colors-rofi.rasi"
+
+# Plantilla para Hyprland (color del borde de ventanas en formato Lua)
+[templates.hyprland]
+input_path = "~/.config/matugen/templates/colors-hyprland.lua"
+output_path = "~/.cache/matugen/colors-hyprland.lua"

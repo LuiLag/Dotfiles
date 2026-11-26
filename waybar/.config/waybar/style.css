@@ -1,6 +1,5 @@
-/* ============================================================================
-   ESTILO VISUAL DE WAYBAR (CÁPSULAS MATERIAL DESIGN + CATPPUCCIN MOCHA)
-   ============================================================================ */
+/* Importa la paleta dinámica generada desde tu fondo de pantalla */
+@import url("/home/lu/.cache/matugen/colors-waybar.css");
 
 * {
     font-family: "JetBrainsMono Nerd Font";
@@ -10,12 +9,11 @@
     border-radius: 0;
 }
 
-/* Hace transparente el fondo general para que solo floten las cápsulas */
 window#waybar {
     background: transparent;
 }
 
-/* Estilo base compartido por todas las cápsulas */
+/* Todas las cápsulas usan el fondo y borde dinámico de tu wallpaper */
 #custom-launcher,
 #workspaces,
 #window,
@@ -24,60 +22,31 @@ window#waybar {
 #memory,
 #pulseaudio,
 #network,
-#battery,
 #custom-power {
-    background-color: rgba(30, 30, 46, 0.88); /* Fondo Catppuccin Base semitransparente */
-    color: #cdd6f4;                            /* Texto blanco suave */
+    background-color: alpha(@surface, 0.88);
+    color: @on_surface;
     padding: 6px 14px;
-    border-radius: 16px;                       /* Esquinas bien redondeadas tipo píldora */
-    border: 1.5px solid rgba(203, 166, 247, 0.35); /* Borde morado sutil */
+    border-radius: 16px;
+    border: 1.5px solid alpha(@primary, 0.45);
 }
 
-/* Logo de Arch a la izquierda */
-#custom-launcher {
-    color: #89b4fa;
-    font-size: 15px;
-    padding-left: 14px;
-    padding-right: 16px;
+#custom-launcher,
+#clock,
+#workspaces button.active {
+    color: @primary;
 }
 
-/* Botones de escritorios (Workspaces) */
 #workspaces button {
     padding: 0 6px;
-    color: #6c7086;
+    color: @secondary;
     background: transparent;
 }
 
-#workspaces button.active {
-    color: #cba6f7; /* Escritorio activo en morado pastel */
-}
-
-#workspaces button:hover {
-    color: #f5c2e7;
-}
-
-/* Título de la ventana activa (oculto si el escritorio está vacío) */
 window#waybar.empty #window {
     background: transparent;
     border: none;
 }
 
-/* Reloj central destacado */
-#clock {
-    color: #cba6f7;
-    border-color: rgba(203, 166, 247, 0.6);
-}
-
-/* Colores individuales para los indicadores de la derecha */
-#cpu { color: #a6e3a1; }        /* Verde */
-#memory { color: #f9e2af; }     /* Amarillo */
-#pulseaudio { color: #89b4fa; } /* Azul */
-#network { color: #94e2d5; }    /* Turquesa */
-#battery { color: #f5c2e7; }    /* Rosa */
-
-/* Botón de apagado/salida */
 #custom-power {
-    color: #f38ba8;             /* Rojo suave */
-    padding-left: 14px;
-    padding-right: 16px;
+    color: @error;
 }
