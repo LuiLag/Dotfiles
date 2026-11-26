@@ -87,7 +87,7 @@ if [ -n "$SELECCION" ]; then
     matugen image "$RUTA" --source-color-index 0
     
     # 4. Recarga Kitty, Waybar y Hyprland con la nueva paleta
-    kill -SIGUSR1 $(pidof kitty) 2>/dev/null
+    kill -SIGUSR1 $(pidof kitty) 2>/dev/null; kill -SIGUSR2 $(pidof waybar) 2>/dev/null; swaync-client -rs >/dev/null 2>kill -SIGUSR1 $(pidof kitty) 2>/dev/null1; hyprctl reload >/dev/null 2>kill -SIGUSR1 $(pidof kitty) 2>/dev/null1
     killall waybar 2>/dev/null
     waybar >/dev/null 2>&1 & disown
     hyprctl reload
