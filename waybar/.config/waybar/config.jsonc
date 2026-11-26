@@ -26,7 +26,7 @@
 
     // --- DETALLE DE CADA MÓDULO ---
     "custom/launcher": {
-        "format": "\uf6be",             // Código Unicode seguro para el icono de Gato (FontAwesome)
+        "format": "\udb80\udd1b",        // Icono de Gato oficial de Nerd Fonts v3 (nf-md-cat)
         "tooltip-format": "Abrir aplicaciones",
         "on-click": "rofi -show drun"
     },
@@ -70,11 +70,11 @@
     },
 
     "network": {
-        "format": "\uf796  Conectado",             // Código Unicode seguro para cable Ethernet
+        "format": "\uf1e6  Conectado",             // Icono universal de conexión/cable (nf-fa-plug)
         "format-wifi": "\uf1eb  {essid}",          // Icono Wi-Fi
-        "format-ethernet": "\uf796  Ethernet",     // Icono cable Ethernet
-        "format-linked": "\uf796  {ifname}",
-        "format-disconnected": "\uf127  Sin red",  // Icono desconectado
+        "format-ethernet": "\uf1e6  Ethernet",     // Icono universal de cable conectado
+        "format-linked": "\uf1e6  {ifname}",
+        "format-disconnected": "\uf127  Sin red",  // Icono enlace roto
         "format-alt": "\uf0ac  {ipaddr}",          // Clic para ver tu IP
         "tooltip-format": "{ifname}: {ipaddr}"
     },
