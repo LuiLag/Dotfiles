@@ -34,7 +34,7 @@ local menu        = "rofi -show drun"  -- Lanzador visual de apps estilo Catppuc
 -- Programas que inician solos con Hyprland (los activaremos al instalar Waybar y fondo):
 hl.on("hyprland.start", function ()
 hl.exec_cmd("waybar")             -- Barra superior
---   hl.exec_cmd("hyprpaper")          -- Fondo de pantalla
+hl.exec_cmd("hyprpaper")          -- Fondo de pantalla
 --   hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
 end)
 
@@ -194,8 +194,16 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i })) -- SUPER + SHIFT + [1-0]: Mover ventana
 end
 
+-- CAPTURAS DE PANTALLA (GRIM + SLURP + PORTAPAPELES) ---
+-- SUPER + SHIFT + S: Recortar un área con el mouse, guardarla y copiarla al portapapeles
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"))
+
+-- Print (ImprPant) o SUPER + Print: Captura toda la pantalla, la guarda y la copia al portapapeles
+hl.bind("Print", hl.dsp.exec_cmd("grim - | tee ~/Pictures/Screenshots/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"))
+
+
 -- Escritorio especial oculto (Scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic")) -- SUPER + S: Mostrar/ocultar secreto
+hl.bind(mainMod .. " + Z",         hl.dsp.workspace.toggle_special("magic")) -- SUPER + S: Mostrar/ocultar secreto
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" })) -- SUPER + SHIFT + S: Guardar ahí
 
 -- Cambiar escritorio con rueda del mouse + SUPER
