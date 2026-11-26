@@ -1,0 +1,125 @@
+/* Importa la paleta dinámica generada por Matugen desde tu fondo de pantalla */
+@import url("/home/lu/.cache/matugen/colors-waybar.css");
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* --- PANEL LATERAL (CENTRO DE CONTROL) --- */
+.control-center {
+  background-color: alpha(@surface, 0.92);
+  border: 2px solid alpha(@primary, 0.6);
+  border-radius: 24px;
+  padding: 16px;
+  color: @on_surface;
+}
+
+/* Cabecera del panel */
+.widget-title {
+  color: @primary;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.widget-title > button {
+  background-color: @surface_container;
+  color: @on_surface;
+  border-radius: 12px;
+  padding: 6px 12px;
+  border: 1px solid alpha(@primary, 0.3);
+}
+
+.widget-title > button:hover {
+  background-color: @primary;
+  color: @on_primary;
+}
+
+/* Interruptor No Molestar */
+.widget-dnd {
+  background-color: @surface_container;
+  border-radius: 16px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.widget-dnd > switch {
+  border-radius: 12px;
+  background-color: alpha(@primary, 0.25);
+}
+
+.widget-dnd > switch:checked {
+  background-color: @primary;
+}
+
+/* Reproductor de música (MPRIS) */
+.widget-mpris {
+  background-color: @surface_container;
+  border-radius: 18px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.widget-mpris-title {
+  color: @primary;
+  font-size: 14px;
+}
+
+.widget-mpris-subtitle {
+  color: @secondary;
+  font-size: 12px;
+}
+
+/* Barra deslizante de volumen */
+.widget-volume {
+  background-color: @surface_container;
+  border-radius: 16px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  color: @primary;
+}
+
+/* Cuadrícula de botones rápidos (Red, Audio, Fondo, Bloquear) */
+.widget-buttons-grid {
+  background-color: transparent;
+  margin-bottom: 10px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background-color: @surface_container;
+  color: @on_surface;
+  border-radius: 16px;
+  padding: 12px;
+  margin: 4px;
+  border: 1px solid alpha(@primary, 0.25);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background-color: @primary;
+  color: @on_primary;
+}
+
+/* --- BURBUJAS DE NOTIFICACIÓN FLOTANTES (3 SEGUNDOS) --- */
+.notification-row {
+  outline: none;
+}
+
+.notification {
+  background-color: alpha(@surface, 0.92);
+  border: 2px solid @primary;
+  border-radius: 18px;
+  padding: 12px;
+  margin: 6px 12px;
+  color: @on_surface;
+}
+
+.summary {
+  color: @primary;
+  font-size: 14px;
+}
+
+.body {
+  color: @on_surface;
+  font-weight: normal;
+}

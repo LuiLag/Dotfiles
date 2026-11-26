@@ -41,7 +41,7 @@ hl.on("hyprland.start", function ()
 hl.exec_cmd("waybar")             -- Barra superior
 hl.exec_cmd("aww-daemon")          -- Fondo de pantalla
 hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
-hl.exec_cmd("mako")
+hl.exec_cmd("swaync")
 hl.exec_cmd("wl-paste --type text --watch cliphist store")  -- Guarda textos copiados
 hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Guarda imágenes copiadas
 end)
@@ -247,6 +247,9 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/cam
 
 -- SUPER + / (slash): Abre la chuleta visual de atajos en Rofi
 hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.local/bin/atajos.sh"))
+
+-- SUPER + N: Abre o cierra el Centro de Control lateral (SwayNC)
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 
 -- ============================================================================
 -- 11. REGLAS DE VENTANAS (WINDOW RULES)
