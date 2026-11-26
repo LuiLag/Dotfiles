@@ -1,4 +1,4 @@
-@import "../../.cache/matugen/colors-waybar.css";
+@import "/home/lu/.cache/matugen/colors-waybar.css";
 
 * {
     font-family: "JetBrainsMono Nerd Font", sans-serif;
@@ -20,6 +20,7 @@ window#waybar {
     background-color: alpha(@surface, 0.80);
     border: 1.5px solid alpha(@primary, 0.25);
     border-radius: 22px;
+    min-height: 34px;
     padding: 4px 10px;
     margin: 6px 8px 0px 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
@@ -45,7 +46,6 @@ window#waybar {
     padding: 3px 11px;
     margin: 2px;
     border-radius: 14px;
-    transition: all 0.25s cubic-bezier(0.38, 1.21, 0.22, 1.0);
 }
 
 #workspaces button:hover {

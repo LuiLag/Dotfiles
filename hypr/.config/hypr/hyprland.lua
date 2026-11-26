@@ -123,6 +123,7 @@ hl.config({
             "fadeIn,       1, 4, standard",
             "fadeOut,      1, 4, decel",
             "workspaces,   1, 4, standard, slide",
+            "layers,       0",
         },
     },
 })

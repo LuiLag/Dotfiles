@@ -1,94 +1,92 @@
-/* ============================================================================
-   1. CONFIGURACIÓN GENERAL (Comportamiento del lanzador)
-   ============================================================================ */
 configuration {
     modi: "drun,run";
     show-icons: true;
     icon-theme: "Papirus-Dark";
-    display-drun: "Apps:";
-    display-run: "Cmd:";
+    display-drun: " ";
+    display-run: " ";
     drun-display-format: "{name}";
-    font: "JetBrainsMono Nerd Font 11";
+    font: "JetBrainsMono Nerd Font Bold 12";
 }
 
 @theme "/dev/null"
-@import "~/.cache/matugen/colors-rofi.rasi"
+@import "/home/lu/.cache/matugen/colors-rofi.rasi"
 
-
-/* ============================================================================
-   2. PALETA DE COLORES Y ESTILO BASE (Catppuccin Mocha)
-   ============================================================================ */
 * {
+    bg-solid: rgba ( 18, 18, 24, 95 % );
+    bg-card: rgba ( 255, 255, 255, 6 % );
+    bg-selected: rgba ( 255, 255, 255, 11 % );
 
     background-color: transparent;
-    text-color:       @fg;
-    margin:           0px;
-    padding:          0px;
+    text-color: @fg;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    spacing: 0px;
 }
 
-/* ============================================================================
-   3. VENTANA PRINCIPAL (Tarjeta flotante redondeada)
-   ============================================================================ */
 window {
-    width:            520px;
-    background-color: @bg;
-    border:           2px;
-    border-color:     @accent;
-    border-radius:    22px;
-    padding:          20px;
+    width: 500px;
+    background-color: @bg-solid;
+    border: 1.5px solid;
+    border-color: @accent;
+    border-radius: 24px;
+    padding: 18px;
 }
 
 mainbox {
-    spacing: 16px;
+    spacing: 14px;
+    children: [ inputbar, listview ];
 }
 
-/* ============================================================================
-   4. BARRA DE BÚSQUEDA (Estilo píldora superior)
-   ============================================================================ */
 inputbar {
-    background-color: @bg-alt;
-    border-radius:    14px;
-    padding:          12px 16px;
-    spacing:          10px;
-    children:         [ prompt, entry ];
+    background-color: @bg-card;
+    border: 1px solid;
+    border-color: rgba ( 255, 255, 255, 10 % );
+    border-radius: 16px;
+    padding: 12px 16px;
+    spacing: 10px;
+    children: [ prompt, entry ];
 }
 
 prompt {
     text-color: @accent;
+    font: "JetBrainsMono Nerd Font Bold 14";
 }
 
 entry {
-    placeholder:       "Buscar aplicación...";
-    placeholder-color: @subtle;
+    placeholder: "Buscar aplicación...";
+    placeholder-color: rgba ( 244, 244, 248, 40 % );
+    text-color: @fg;
 }
 
-/* ============================================================================
-   5. LISTA DE APLICACIONES (Resultados)
-   ============================================================================ */
 listview {
-    lines:        7;
-    columns:      1;
-    fixed-height: true;
-    spacing:      6px;
-    scrollbar:    false;
+    lines: 7;
+    columns: 1;
+    spacing: 6px;
+    fixed-height: false;
+    scrollbar: false;
+    border: 0px;
 }
 
 element {
-    padding:       10px 14px;
-    border-radius: 12px;
-    spacing:       12px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    spacing: 14px;
+    orientation: horizontal;
 }
 
-element selected {
-    background-color: @accent;
-    text-color:       #11111B;
+element selected.normal {
+    background-color: @bg-selected;
+    border: 1.5px solid;
+    border-color: @accent;
 }
 
 element-icon {
-    size: 26px;
+    size: 28px;
+    vertical-align: 0.5;
 }
 
 element-text {
     vertical-align: 0.5;
-    text-color:     inherit;
+    text-color: @fg;
 }

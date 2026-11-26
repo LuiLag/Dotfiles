@@ -1,6 +1,7 @@
 {
     // --- POSICIÓN Y TAMAÑO DE LA BARRA ---
     "layer": "top",
+    "height": 48,
     "position": "top",
     "margin-top": 10,
     "margin-left": 16,
