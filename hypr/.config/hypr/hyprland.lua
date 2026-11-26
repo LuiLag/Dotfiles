@@ -311,3 +311,27 @@ hl.window_rule({
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pgrep -x conky >/dev/null && killall conky || LC_TIME=es_MX.UTF-8 conky -d"))
 
 -- Si el Centro de Control está abierto, Esc cierra tanto SwayNC como el reloj
+
+-- --- EFECTO CRISTAL (BLUR) EN BARRA, PANEL DE CONTROL Y MENÚS ---
+hl.config({
+    decoration = {
+        rounding = 16,
+        blur = {
+            enabled = true,
+            size = 6,
+            passes = 3,
+            new_optimizations = true,
+            ignore_opacity = true,
+        },
+        shadow = {
+            enabled = true,
+            range = 18,
+            render_power = 3,
+            color = "rgba(00000066)",
+        },
+    },
+})
+
+hl.layer_rule({ name = "blur-waybar", match = { namespace = "waybar" }, blur = true, ignore_alpha = 0.2 })
+hl.layer_rule({ name = "blur-swaync", match = { namespace = "swaync.*" }, blur = true, ignore_alpha = 0.2 })
+hl.layer_rule({ name = "blur-rofi",   match = { namespace = "rofi" }, blur = true, ignore_alpha = 0.2 })

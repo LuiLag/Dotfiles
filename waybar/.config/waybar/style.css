@@ -1,61 +1,110 @@
-/* Importa la paleta dinámica generada desde tu fondo de pantalla */
-@import url("/home/lu/.cache/matugen/colors-waybar.css");
+@import "../../.cache/matugen/colors-waybar.css";
 
 * {
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
     font-weight: bold;
     border: none;
     border-radius: 0;
+    min-height: 0;
 }
 
 window#waybar {
     background: transparent;
 }
 
-/* Todas las cápsulas usan el fondo y borde dinámico de tu wallpaper */
-#custom-launcher,
-#workspaces,
-#window,
-#clock,
-#cpu,
-#memory,
-#pulseaudio,
-#network,
-#custom-notifications,
-#custom-power {
-    background-color: alpha(@surface, 0.88);
-    color: @on_surface;
-    padding: 6px 14px;
-    border-radius: 16px;
-    border: 1.5px solid alpha(@primary, 0.45);
+/* --- CÁPSULAS FLOTANTES ESTILO MATERIAL 3 --- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: alpha(@surface, 0.80);
+    border: 1.5px solid alpha(@primary, 0.25);
+    border-radius: 22px;
+    padding: 4px 10px;
+    margin: 6px 8px 0px 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
-#custom-launcher,
-#clock,
-#workspaces button.active {
+/* --- LOGO ARCH LINUX --- */
+#custom-arch {
     color: @primary;
+    font-size: 16px;
+    padding: 0 12px 0 6px;
+}
+
+/* --- ESCRITORIOS POR ACTIVIDAD (PÍLDORAS ANIMADAS) --- */
+#workspaces {
+    background-color: alpha(@surface_container, 0.65);
+    border-radius: 16px;
+    padding: 2px 4px;
+    margin-right: 6px;
 }
 
 #workspaces button {
-    padding: 0 6px;
-    color: @secondary;
-    background: transparent;
+    color: alpha(@on_surface, 0.55);
+    padding: 3px 11px;
+    margin: 2px;
+    border-radius: 14px;
+    transition: all 0.25s cubic-bezier(0.38, 1.21, 0.22, 1.0);
 }
 
-window#waybar.empty #window {
-    background: transparent;
-    border: none;
+#workspaces button:hover {
+    background-color: alpha(@primary, 0.20);
+    color: @on_surface;
 }
 
+#workspaces button.active {
+    background-color: @primary;
+    color: @on_primary;
+    padding: 3px 16px;
+}
+
+/* --- TÍTULO DE VENTANA ACTIVA --- */
+#window {
+    color: alpha(@on_surface, 0.85);
+    padding: 0 10px;
+    font-weight: normal;
+}
+
+/* --- RELOJ CENTRAL --- */
+#clock {
+    color: @on_surface;
+    padding: 0 12px;
+    letter-spacing: 0.5px;
+}
+
+/* --- MÓDULOS DERECHOS CON ACENTOS DE COLOR --- */
+#cpu,
+#memory,
+#network,
+#pulseaudio,
 #custom-notifications,
 #custom-power {
-    color: @error;
+    padding: 3px 10px;
+    margin: 0 2px;
+    border-radius: 14px;
+    background-color: alpha(@surface_container, 0.55);
+    color: @on_surface;
 }
 
-/* --- BARRA DESLIZANTE DE VOLUMEN DESPLEGABLE --- */
+#cpu {
+    color: @secondary;
+}
+
+#memory {
+    color: @tertiary;
+}
+
+#network {
+    color: @primary;
+}
+
+#pulseaudio {
+    color: @on_surface;
+}
+
 #pulseaudio-slider {
-    padding: 0 10px;
+    padding: 0 8px;
 }
 #pulseaudio-slider slider {
     min-height: 0px;
@@ -63,16 +112,35 @@ window#waybar.empty #window {
     opacity: 0;
     background-image: none;
     border: none;
-    box-shadow: none;
 }
 #pulseaudio-slider trough {
-    min-height: 8px;
-    min-width: 80px;
+    min-height: 7px;
+    min-width: 75px;
     border-radius: 99px;
     background-color: alpha(@on_surface, 0.2);
 }
 #pulseaudio-slider highlight {
-    min-width: 8px;
+    min-width: 7px;
     border-radius: 99px;
     background-color: @primary;
+}
+
+#custom-notifications {
+    color: @primary;
+    padding: 3px 11px;
+}
+
+#custom-notifications:hover {
+    background-color: alpha(@primary, 0.25);
+}
+
+#custom-power {
+    background-color: alpha(@error, 0.20);
+    color: @error;
+    padding: 3px 11px;
+}
+
+#custom-power:hover {
+    background-color: @error;
+    color: @on_error;
 }
