@@ -291,3 +291,20 @@ hl.layer_rule({
     ignore_alpha = 0.5,
 })
 
+
+-- Regla para anclar el Reloj Gigante (Conky) al fondo de pantalla
+hl.window_rule({
+    name             = "reloj-conky",
+    match            = { class = "ConkyClock" },
+    float            = true,
+    pin              = true,
+    no_focus         = true,
+    no_initial_focus = true,
+    no_shadow        = true,
+    no_anim          = true,
+    border_size      = 0,
+    opacity          = 0.90,
+})
+
+-- SUPER + T: Muestra u oculta el reloj gigante del escritorio al instante
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pgrep -x conky >/dev/null && killall conky || LC_TIME=es_MX.UTF-8 conky -d"))
