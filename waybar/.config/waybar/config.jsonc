@@ -19,7 +19,7 @@
     "modules-right": [
         "cpu",
         "memory",
-        "pulseaudio",
+        "group/audio",
         "network",
         "custom/notifications",
         "custom/power"
@@ -29,12 +29,12 @@
     "custom/launcher": {
         "format": "\udb80\udd1b",        // Icono de Gato oficial de Nerd Fonts v3 (nf-md-cat)
         "tooltip-format": "Abrir aplicaciones",
-        "on-click": "rofi -show drun"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
         "hyprland/workspaces": {
         "format": "{icon}",
-        "on-click": "activate",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "persistent-workspaces": {
             "*": 5
         },
@@ -68,13 +68,31 @@
         "interval": 2
     },
 
+    "group/audio": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
     "pulseaudio": {
         "format": "{icon}  {volume}%",
         "format-muted": "\uf6a9  Mute",
         "format-icons": {
             "default": ["\uf026", "\uf027", "\uf028"]
         },
-        "on-click": "pavucontrol"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
     "network": {
@@ -90,12 +108,12 @@
     "custom/notifications": {
         "format": "\uf0f3",
         "tooltip-format": "Centro de Control (Super + N)",
-        "on-click": "/home/lu/.local/bin/centro-completo.sh"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
     "custom/power": {
         "format": "\uf011",
         "tooltip": false,
-        "on-click": "/home/lu/.local/bin/menu-energia.sh"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     }
 }
