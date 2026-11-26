@@ -1,0 +1,97 @@
+/* ============================================================================
+   1. CONFIGURACIÓN GENERAL (Comportamiento del lanzador)
+   ============================================================================ */
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    display-drun: "Apps:";
+    display-run: "Cmd:";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+@theme "/dev/null"
+
+/* ============================================================================
+   2. PALETA DE COLORES Y ESTILO BASE (Catppuccin Mocha)
+   ============================================================================ */
+* {
+    bg:          #1E1E2EE6;
+    bg-alt:      #313244CC;
+    fg:          #CDD6F4;
+    accent:      #CBA6F7;
+    subtle:      #6C7086;
+
+    background-color: transparent;
+    text-color:       @fg;
+    margin:           0px;
+    padding:          0px;
+}
+
+/* ============================================================================
+   3. VENTANA PRINCIPAL (Tarjeta flotante redondeada)
+   ============================================================================ */
+window {
+    width:            520px;
+    background-color: @bg;
+    border:           2px;
+    border-color:     @accent;
+    border-radius:    22px;
+    padding:          20px;
+}
+
+mainbox {
+    spacing: 16px;
+}
+
+/* ============================================================================
+   4. BARRA DE BÚSQUEDA (Estilo píldora superior)
+   ============================================================================ */
+inputbar {
+    background-color: @bg-alt;
+    border-radius:    14px;
+    padding:          12px 16px;
+    spacing:          10px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    placeholder:       "Buscar aplicación...";
+    placeholder-color: @subtle;
+}
+
+/* ============================================================================
+   5. LISTA DE APLICACIONES (Resultados)
+   ============================================================================ */
+listview {
+    lines:        7;
+    columns:      1;
+    fixed-height: true;
+    spacing:      6px;
+    scrollbar:    false;
+}
+
+element {
+    padding:       10px 14px;
+    border-radius: 12px;
+    spacing:       12px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color:       #11111B;
+}
+
+element-icon {
+    size: 26px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color:     inherit;
+}
