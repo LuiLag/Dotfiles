@@ -63,7 +63,7 @@
     },
 
     "memory": {
-        "format": "\uf538  {percentage}%",
+        "format": "\udb80\udf5b  {percentage}%",
         "interval": 2
     },
 
