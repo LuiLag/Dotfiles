@@ -31,12 +31,19 @@
         "on-click": "rofi -show drun"
     },
 
-    "hyprland/workspaces": {
+        "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 5
+        },
         "format-icons": {
-            "active": "\uf111",         // Círculo relleno
-            "default": "\uf10c"         // Círculo vacío
+            "1": "\uf121",
+            "2": "\uf0ac",
+            "3": "\uf11b",
+            "4": "\uf001",
+            "5": "\uf086",
+            "default": "\uf10c"
         }
     },
 
