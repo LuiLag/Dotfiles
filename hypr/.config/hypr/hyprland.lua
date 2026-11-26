@@ -202,17 +202,16 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i })) -- SUPER + SHIFT + [1-0]: Mover ventana
 end
 
--- CAPTURAS DE PANTALLA (GRIM + SLURP + PORTAPAPELES) ---
--- SUPER + SHIFT + S: Recortar un área con el mouse, guardarla y copiarla al portapapeles
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"))
+-- --- CAPTURAS DE PANTALLA ---
+-- SUPER + SHIFT + X: Recortar un área (ignora pulsaciones repetidas si slurp ya está activo)
+hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exec_cmd("pgrep -x slurp >/dev/null || grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"))
 
--- Print (ImprPant) o SUPER + Print: Captura toda la pantalla, la guarda y la copia al portapapeles
+-- Print: Captura toda la pantalla
 hl.bind("Print", hl.dsp.exec_cmd("grim - | tee ~/Pictures/Screenshots/captura_$(date +%Y%m%d_%H%M%S).png | wl-copy"))
 
-
 -- Escritorio especial oculto (Scratchpad)
-hl.bind(mainMod .. " + Z",         hl.dsp.workspace.toggle_special("magic")) -- SUPER + S: Mostrar/ocultar secreto
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" })) -- SUPER + SHIFT + S: Guardar ahí
+hl.bind(mainMod .. " + Z",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + Z", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Cambiar escritorio con rueda del mouse + SUPER
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" })) -- Siguiente escritorio
