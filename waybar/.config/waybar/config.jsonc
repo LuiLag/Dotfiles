@@ -30,7 +30,7 @@
 
     // --- DETALLE DE CADA MÓDULO ---
     "custom/launcher": {
-        "format": "\udb80\udd1b",        // Icono de Gato oficial de Nerd Fonts v3 (nf-md-cat)
+        "format": "\udb80\udd1b ",        // Icono de Gato oficial de Nerd Fonts v3 (nf-md-cat)
         "tooltip-format": "Abrir aplicaciones",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
