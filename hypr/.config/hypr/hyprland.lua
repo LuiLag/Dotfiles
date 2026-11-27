@@ -35,17 +35,19 @@ local menu        = "rofi -show drun -theme ~/.config/rofi/grid-apps.rasi"  -- L
 
 -- ============================================================================
 -- 3. AUTOARRANQUE (AUTOSTART)
+-- Descripción: Servicios esenciales que inician automáticamente con Hyprland
+-- (barra, motor de wallpapers awww, cambio por escritorio, notificaciones y cliphist).
 -- ============================================================================
--- Programas que inician solos con Hyprland (los activaremos al instalar Waybar y fondo):
 hl.on("hyprland.start", function ()
-hl.exec_cmd("waybar")             -- Barra superior
-hl.exec_cmd("aww-daemon")          -- Fondo de pantalla
-hl.exec_cmd("nm-applet")          -- Icono de Wi-Fi/Red
-hl.exec_cmd("swaync")
-  hl.exec_cmd("hypridle")
-  hl.exec_cmd("swayosd-server")
-hl.exec_cmd("wl-paste --type text --watch cliphist store")  -- Guarda textos copiados
-hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Guarda imágenes copiadas
+    hl.exec_cmd("waybar")                                       -- Barra superior
+    hl.exec_cmd("awww-daemon")                                  -- Motor de fondos de pantalla
+    hl.exec_cmd("/home/lu/.local/bin/fondo-por-escritorio.sh")  -- Fondo automático al cambiar de escritorio
+    hl.exec_cmd("nm-applet")                                    -- Icono de red en bandeja
+    hl.exec_cmd("swaync")                                       -- Centro de Control y notificaciones
+    hl.exec_cmd("hypridle")                                     -- Bloqueo automático por inactividad
+    hl.exec_cmd("swayosd-server")                               -- Indicadores flotantes de volumen y brillo
+    hl.exec_cmd("wl-paste --type text --watch cliphist store")  -- Guarda textos copiados
+    hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Guarda imágenes copiadas
 end)
 
 -- ============================================================================
@@ -348,29 +350,6 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pgrep -x conky >/dev/null && killall
 
 -- Si el Centro de Control está abierto, Esc cierra tanto SwayNC como el reloj
 
--- --- EFECTO CRISTAL (BLUR) EN BARRA, PANEL DE CONTROL Y MENÚS ---
-hl.config({
-    decoration = {
-        rounding = 16,
-        blur = {
-            enabled = true,
-            size = 6,
-            passes = 3,
-            new_optimizations = true,
-            ignore_opacity = true,
-        },
-        shadow = {
-            enabled = true,
-            range = 18,
-            render_power = 3,
-            color = "rgba(00000066)",
-        },
-    },
-})
-
-hl.layer_rule({ name = "blur-waybar", match = { namespace = "waybar" }, blur = true, ignore_alpha = 0.2 })
-hl.layer_rule({ name = "blur-rofi",   match = { namespace = "rofi" }, blur = true, ignore_alpha = 0.2 })
-hl.layer_rule({ name = "no-blur-swaync", match = { namespace = "swaync.*" }, blur = false })
 
 -- ============================================================================
 -- SUBSECCIÓN: SPOTIFY EN ESCRITORIO DEDICADO (MÚSICA)
