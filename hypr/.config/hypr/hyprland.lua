@@ -265,7 +265,7 @@ local suppressMaximizeRule = hl.window_rule({
 })
 
 -- Soluciona enfoque de ventanas fantasma en apps XWayland
-hl.window_rule({
+hl.window_rule({ 
     name  = "fix-xwayland-drags",
     match = {
         class      = "^$",
@@ -284,6 +284,26 @@ hl.window_rule({
     match = { class = "hyprland-run" },
     move  = "20 monitor_h-120",
     float = true,
+})
+
+-- ============================================================================
+-- SUBSECCIÓN: JUEGOS (TIBIA Y STEAM) EN MODO MAXIMIZADO
+-- Descripción: Superpone los juegos sobre el escritorio actual manteniendo
+-- visible la barra Waybar mediante fullscreen_state = "1 0".
+-- ============================================================================
+
+-- Tibia: abre maximizado respetando Waybar
+hl.window_rule({
+    name  = "maximize-tibia",
+    match = { class = "^(com\\.tibia\\.client)$" },
+    fullscreen_state = "1 0",
+})
+
+-- Juegos de Steam: abren maximizados respetando Waybar
+hl.window_rule({
+    name  = "maximize-steam-games",
+    match = { class = "^(steam_app_.*)$" },
+    fullscreen_state = "1 0",
 })
 
 -- Efecto cristal desenfocado (blur) para el Centro de Control SwayNC
