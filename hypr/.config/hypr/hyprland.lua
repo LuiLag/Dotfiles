@@ -371,3 +371,17 @@ hl.config({
 hl.layer_rule({ name = "blur-waybar", match = { namespace = "waybar" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ name = "blur-rofi",   match = { namespace = "rofi" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ name = "no-blur-swaync", match = { namespace = "swaync.*" }, blur = false })
+
+-- ============================================================================
+-- SUBSECCIÓN: SPOTIFY EN ESCRITORIO DEDICADO (MÚSICA)
+-- Descripción: Envía automáticamente la ventana de Spotify al espacio de
+-- trabajo de Música (workspace 4) cada vez que se abre.
+-- ============================================================================
+
+-- Spotify: abre directo en el escritorio Música sin cambiar tu foco actual
+hl.window_rule({
+    name      = "spotify-to-music-workspace",
+    match     = { class = "^([Ss]potify)$" },
+    workspace = "4",
+})
+

@@ -31,3 +31,9 @@ output_path = "/home/lu/.cache/matugen/colors-hyprlock.conf"
 input_path = "~/.config/matugen/templates/colors-btop.theme"
 output_path = "~/.config/btop/themes/matugen.theme"
 
+# Plantilla para Spotify (esquema de color dinámico en Spicetify)
+[templates.spotify]
+input_path = "~/.config/matugen/templates/colors-spicetify.ini"
+output_path = "~/.config/spicetify/Themes/Sleek/color.ini"
+post_hook = "spicetify apply -n"
+
