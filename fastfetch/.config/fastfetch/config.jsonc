@@ -64,7 +64,7 @@
         },
         {
             "type": "gpu",
-            "key": "│    GPU",
+            "key": "│  GPU",
             "keyColor": "#A6E3A1"
         },
         {
@@ -74,12 +74,12 @@
         },
         {
             "type": "disk",
-            "key": "│    Disco",
+            "key": "│  Disco",
             "keyColor": "#A6E3A1"
         },
         {
             "type": "uptime",
-            "key": "│    Uptime",
+            "key": "│  Uptime",
             "keyColor": "#F9E2AF"
         },
         {
