@@ -36,7 +36,7 @@
   ],
   "widget-config": {
     "title": {
-      "text": "⠀            10°C Parcialmente nublado",
+      "text": "⠀     10°C Lluvia localizada en las cercanías",
       "clear-all-button": false
     },
     "dnd": {
@@ -98,7 +98,7 @@
     },
     "label": {
       "max-lines": 10,
-      "text": "       LuiLag • Up 22h 27m\n         Mérida, Yucatán\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n            05:54 PM\n     Jueves, 26 de noviembre\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCDMX:  05:54 PM  Tokio: 08:54 AM\nMadrid:12:54 AM  Seúl:  08:54 AM"
+      "text": "        LuiLag • Up 1h 4m\n         Mérida, Yucatán\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n            08:31 PM\n     Jueves, 26 de noviembre\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCDMX:  08:31 PM  Tokio: 11:31 AM\nMadrid:03:31 AM  Seúl:  11:31 AM"
     }
   }
 }
