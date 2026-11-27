@@ -146,3 +146,20 @@ window#waybar {
     background-color: @error;
     color: @on_error;
 }
+/* ============================================================================
+   SECCIÓN: ESTILO DEL MÓDULO SPOTIFY (MPRIS)
+   Descripción: Pastilla redondeada con colores dinámicos de Matugen.
+   ============================================================================ */
+#mpris {
+    background-color: @surface_container;
+    color: @primary;
+    padding: 0 14px;
+    margin: 4px 6px;
+    border-radius: 16px;
+    font-weight: bold;
+}
+
+#mpris.paused {
+    color: @outline;
+}
+

@@ -12,7 +12,8 @@
     "modules-left": [
         "custom/launcher",
         "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/window",
+        "mpris"
     ],
     "modules-center": [
         "clock"
@@ -126,5 +127,21 @@
         "format": "\uf011",
         "tooltip": false,
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    }
+    },
+    // ============================================================================
+// SECCIÓN: REPRODUCTOR MULTIMEDIA EN VIVO (SPOTIFY / MPRIS)
+// Descripción: Muestra el artista y canción actual de Spotify en Waybar.
+// Controles: Clic izquierdo = Play/Pausa | Clic derecho = Siguiente | Scroll = Volumen.
+// ============================================================================
+    "mpris": {
+    "player": "spotify",
+    "format": "  {artist} - {title}",
+    "format-paused": "  <i>{artist} - {title}</i>",
+    "max-length": 35,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "playerctl -p spotify next",
+    "on-scroll-up": "playerctl -p spotify volume 0.05+",
+    "on-scroll-down": "playerctl -p spotify volume 0.05-"
+    },
+
 }
