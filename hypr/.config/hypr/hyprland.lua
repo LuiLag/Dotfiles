@@ -305,6 +305,21 @@ hl.window_rule({
     match = { class = "^(steam_app_.*)$" },
     fullscreen_state = "1 0",
 })
+-- ============================================================================
+-- SUBSECCIÓN: MONITOR DEL SISTEMA FLOTANTE (BTOP DESDE WAYBAR)
+-- Descripción: Abre btop como una ventana flotante centrada al 80% cuando se
+-- hace clic en los módulos de CPU o Memoria de Waybar (título: btop-monitor).
+-- ============================================================================
+
+-- Monitor btop: ventana flotante rápida encima de cualquier escritorio
+hl.window_rule({
+    name   = "float-btop-monitor",
+    match  = { title = "^(btop-monitor)$" },
+    float  = true,
+    size   = "80% 80%",
+    center = true,
+})
+
 
 -- Efecto cristal desenfocado (blur) para el Centro de Control SwayNC
 hl.layer_rule({

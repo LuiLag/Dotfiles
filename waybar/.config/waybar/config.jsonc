@@ -62,11 +62,13 @@
     },
 
     "cpu": {
+        "on-click": "kitty --title btop-monitor -e btop",
         "format": "\uf2db  {usage}%",
         "interval": 2
     },
 
     "memory": {
+        "on-click": "kitty --title btop-monitor -e btop",
         "format": "\udb80\udf5b  {percentage}%",
         "interval": 2
     },
