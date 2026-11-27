@@ -28,3 +28,4 @@ run() {
 # ============================================================================
 eval "$(starship init bash)"
 fastfetch
+alias dotpush="cd ~/dotfiles && git add -A && git commit -m \"dotfiles: actualizar configuracion\" && git push"
